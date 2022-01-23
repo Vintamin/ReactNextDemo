@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import Test from '../components/test'
 
 const Home = () => (
   <div>
@@ -10,7 +11,7 @@ const Home = () => (
     </Head>
 
     <Nav />
-
+    <Test>首页传来的值</Test>
     <div className='hero'>
       <h1 className='title'>Welcome to Next.js!</h1>
       <p className='description'>
