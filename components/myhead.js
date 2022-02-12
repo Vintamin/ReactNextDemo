@@ -7,8 +7,10 @@ export default ({children}) => {
             <Head>
                 <title>这是共同的头部</title>
             </Head>
+            <header>这是共同的头部</header>
+            <hr />
                 {children}
-                <hr />
+            <hr />
             <footer>
                 这是李佳康的页面
             </footer>

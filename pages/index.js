@@ -1,26 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
-import {Router} from 'next/router'
+import {useRouter} from 'next/router'
 import next from 'next'
 import MyHead from '../components/myhead'
 
-Router.events.on("routeChangeStart",(url)=>{
-  if(url === "/a"){
-    location.href ='/films'
-  }
-})
+
 
 const Home = () => {
 
 
-  const gotoIphone = () => {
-    Router.push({
-      pathname: 'phone',
-      query: {
-        name: '苹果'
-      }
-    })
-  }
+  const router =useRouter();
 
   return (
     <>
@@ -32,11 +21,12 @@ const Home = () => {
 
         <div>
           <div><Link href="/phone?name=苹果"><a >苹果手机</a></Link></div>
-          <div><Link href="/phone?name=小米"><a >小米手机</a></Link></div>
+          {/* <div><Link href="/phone?name=小米"><a >小米手机</a></Link></div> */}
+          <div><Link href={{pathname:"/phone",query:{name:'小米'}}}><a >小米手机</a></Link></div>
         </div>
 
         <div>
-          <button onClick={gotoIphone}>买苹果</button>
+          <button onClick={()=>{router.push("/phone?name=苹果")}}>买苹果</button>
         </div>
       </MyHead>
 
