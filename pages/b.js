@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import React from 'react'
-
+import axios from 'axios'
 const RedLink =React.forwardRef((props,ref)=>{
     return(
         <a href={props.href} ref={ref}>Link套组件方式回首页</a>
@@ -9,7 +9,11 @@ const RedLink =React.forwardRef((props,ref)=>{
 })
 export default ({children})=>{
     
-    console.log("props",children);
+    //console.log("props",children);
+    const getApiTest =async()=>{
+        let res =await axios.get("http://localhost:5000/api/test")
+        console.log("这是我自己写的api",res);
+    }
     return (
         <div>
             <Head>
@@ -20,6 +24,8 @@ export default ({children})=>{
             <hr />
             <p>Link标签中套组件</p>
             <Link href="/" passHref><RedLink></RedLink></Link>
+            <hr />
+            <button onClick={getApiTest}>请求Api路由</button>
         </div>
     )
 }
